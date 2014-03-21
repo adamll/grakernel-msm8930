@@ -99,3 +99,4 @@ obj-$(CONFIG_TIMA_LOG)		+= tima_debug_log.o
 endif
 
 obj-$(CONFIG_GENERIC_BLN)	+= bln.o
+obj-$(CONFIG_CACHE2DMANAGER)	+= cache-2dmanager/
