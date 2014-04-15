@@ -2903,18 +2903,10 @@ void __init msm8930_allocate_fb_region(void)
 	void *addr;
 	unsigned long size;
 
-	if (use_frame_buffer) {
-		size = MSM_FB_SIZE;
-		addr = alloc_bootmem_align(size, 0x1000);
-		msm_fb_resources[0].start = __pa(addr);
-		msm_fb_resources[0].end = msm_fb_resources[0].start + size - 1;
-		pr_info("allocating %lu bytes at %p (%lx physical) for fb\n",
+	size = MSM_FB_SIZE;
+	addr = alloc_bootmem_align(size, 0x1000);
+	msm_fb_resources[0].start = __pa(addr);
+	msm_fb_resources[0].end = msm_fb_resources[0].start + size - 1;
+	pr_info("allocating %lu bytes at %p (%lx physical) for fb\n",
 			size, addr, __pa(addr));
-	} else {
-		size = 0;
-		addr = NULL;
-		msm_fb_resources[0].start = 0UL;
-		msm_fb_resources[0].end = 0UL;
-		pr_info("FB is not used. No allocation for FB");
-	}
 }
